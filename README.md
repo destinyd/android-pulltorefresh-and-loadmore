@@ -20,6 +20,22 @@ at <http://www.androidpatterns.com/uap_pattern/pull-to-refresh-2>
 Repository at <https://github.com/shontauro/android-pulltorefresh-and-loadmore>.
 
 ## Usage
+### Add to your project pom
+``` xml
+         <dependency>
+            <groupId>com.github.chrisbanes.pulltorefresh</groupId>
+            <artifactId>extra-listfragment</artifactId>
+            <version>2.1.1</version>
+            <type>apklib</type>
+         </dependency>
+
+         <dependency>
+            <groupId>com.costum</groupId>
+            <artifactId>loadmorelistview</artifactId>
+            <version>0.1.0</version>
+             <type>apklib</type>
+         </dependency>
+```
 
 ### Layout for loadmore listview
 
