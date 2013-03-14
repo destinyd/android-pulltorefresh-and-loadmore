@@ -45,6 +45,7 @@ public class LoadMoreListView extends ListView implements OnScrollListener {
 	private RelativeLayout mFooterView;
 	// private TextView mLabLoadMore;
 	private ProgressBar mProgressBarLoadMore;
+	private View mTopLine;
 
 	// Listener to process load more items when user reaches the end of the list
 	private OnLoadMoreListener mOnLoadMoreListener;
@@ -81,6 +82,9 @@ public class LoadMoreListView extends ListView implements OnScrollListener {
 		 */
 		mProgressBarLoadMore = (ProgressBar) mFooterView
 				.findViewById(R.id.load_more_progressBar);
+
+		mTopLine = mFooterView
+				.findViewById(R.id.top_line);
 
 		addFooterView(mFooterView);
 
@@ -128,6 +132,7 @@ public class LoadMoreListView extends ListView implements OnScrollListener {
 
 			if (visibleItemCount == totalItemCount) {
 				mProgressBarLoadMore.setVisibility(View.GONE);
+                mTopLine.setVisibility(View.GONE);
 				// mLabLoadMore.setVisibility(View.GONE);
 				return;
 			}
@@ -137,6 +142,7 @@ public class LoadMoreListView extends ListView implements OnScrollListener {
 			if (!mIsLoadingMore && loadMore
 					&& mCurrentScrollState != SCROLL_STATE_IDLE) {
 				mProgressBarLoadMore.setVisibility(View.VISIBLE);
+                mTopLine.setVisibility(View.VISIBLE);
 				// mLabLoadMore.setVisibility(View.VISIBLE);
 				mIsLoadingMore = true;
 				onLoadMore();
@@ -168,6 +174,7 @@ public class LoadMoreListView extends ListView implements OnScrollListener {
 	public void onLoadMoreComplete() {
 		mIsLoadingMore = false;
 		mProgressBarLoadMore.setVisibility(View.GONE);
+		mTopLine.setVisibility(View.GONE);
 	}
 
 	/**
